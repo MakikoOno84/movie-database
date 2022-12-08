@@ -1,0 +1,15 @@
+
+
+footer {
+    color: white;
+    // remove empty space below footer for short content page
+    margin-top: auto;
+    background-color: black;
+    padding: 20px 30px;
+    p {
+        margin: 0 auto;
+        width: fit-content;
+        font-size: 1rem;
+    }
+}
+

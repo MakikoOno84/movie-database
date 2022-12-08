@@ -1,0 +1,60 @@
+// Button Main Nav Styles
+
+@use '../base/settings' as *;
+@use '../utilities/functions' as *;
+@use '../utilities/mixins' as *;
+
+// Hamburger icon styles modified from
+// the following codepen:
+// https://codepen.io/RRoberts/pen/ZBYaJr
+
+.btn-main-nav {
+
+    @include flatten;
+    border: none;
+    background: none;
+    margin-right: em(12);
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    .line{
+        width: 50px;
+        height: 5px;
+        background-color: $pink;
+        display: block;
+        margin: 8px auto;
+        transition: all 0.3s ease-in-out;
+
+        .show &:nth-child(2){
+            width: 0;
+        }
+
+        .show &:nth-child(1), .btn-main-nav.show .line:nth-child(3){
+            transition-delay: 0.3s;
+        }
+
+        .show &:nth-child(1){
+            transform: translateY(13px);
+        }
+
+        .show &:nth-child(3){
+            transform: translateY(-13px) rotate(90deg);
+        }
+
+    }
+      
+    .show & {
+        transition: all 0.3s ease-in-out;
+        transition-delay: 0.6s;
+        transform: rotate(45deg);
+    }
+
+    @media (min-width: em(600)){
+        display: none;
+    }
+
+}
+
+

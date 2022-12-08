@@ -1,0 +1,75 @@
+// Main Nav
+
+@use '../base/settings' as *;
+@use '../utilities/functions' as *;
+@use '../utilities/mixins' as *;
+
+.main-nav {
+
+    width: 100%;
+    // background-color: $dark;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: height 0.5s ease, visibility 0s 0.5s;
+
+    .show & {
+        transition: height 0.5s ease, visibility 0s;
+        visibility: visible;
+        height: 150px;
+    }
+
+    ul {
+        @include flatten($is-list: true);
+    }
+    a {
+        color: $light;
+        text-decoration: none;
+        display: block;
+        line-height: 50px;
+        font-size: 1.3em;
+        font-weight: bold;
+        padding: 0 12px;
+        @at-root .main-nav li:not(:first-child) a {
+            border-top: 1px solid $grey;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            // background-color: rgba(white, 0.2);
+            color:$pink;
+        }
+    }
+
+
+    @media (min-width: em(600)){
+        height: auto;
+        visibility: visible;
+        transition: none;
+
+        .show & {
+            transition: none;
+            height: auto;
+        }
+        
+        ul {
+            display: flex;
+        }
+
+        li {
+            flex: 1;
+        }
+
+        a {
+            padding: 0;
+            text-align: center;
+            border-top:  none;
+            @at-root .main-nav li:not(:first-child) a {
+                border-top: none;
+                border-left: 3px solid $grey;
+            }
+        }
+
+    }
+
+}
